@@ -1,11 +1,16 @@
 "Vundle
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'git://git.wincent.com/command-t.git'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'mattn/emmet-vim'
 Plugin 'Townk/vim-autoclose'
 Plugin 'vim-scripts/closetag.vim'
@@ -16,10 +21,13 @@ Plugin 'drewtempelmeyer/palenight.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Lokaltog/vim-powerline'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'turbio/bracey.vim'
+
+call vundle#end()            " required
 
 colorscheme palenight
-
-filetype plugin indent on
+filetype plugin indent on    " required
 
 " -- Affichage
 set title               " Met a jour le titre de votre fenetre ou de
@@ -67,7 +75,9 @@ set antialias
 " Indentation
 set smartindent " Indentation intelligente
 set autoindent  " Conserve l'indentation sur une nouvelle ligne
-set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab " Indentation 2
+"set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab " Indentation 4
+set autoindent noexpandtab tabstop=4 shiftwidth=4
 
+:se mouse+=a
 
 nmap <F6> :NERDTreeToggle<CR>
